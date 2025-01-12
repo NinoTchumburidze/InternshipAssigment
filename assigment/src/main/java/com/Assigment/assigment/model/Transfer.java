@@ -19,6 +19,6 @@ public class Transfer {
 
     @Override
     public String toString() {
-        return "Transfer{" + "weight=" + weight + ", cost=" + cost + '}';
+        return "{" + "weight: " + weight + ", cost: " + cost + '}';
     }
 }
