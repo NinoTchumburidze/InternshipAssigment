@@ -53,7 +53,7 @@ class ServiceTest {
 
     //This is invalid case, when maxWeight is less than each of the transfer's weight
     @Test
-    void optimizationTest3() {
+    void optimizationTestInvalidCase() {
 
         List<Transfer> transfers1 = List.of(
                 new Transfer(15, 30),
@@ -71,7 +71,7 @@ class ServiceTest {
 
     //Another invalid case: When initial list is empty
     @Test
-    void optimizationTest4() {
+    void optimizationTestInitialListEmpty() {
 
         List<Transfer> transfers1 = List.of();
         int maxWeight = 10;
@@ -83,7 +83,7 @@ class ServiceTest {
 
     // Testing a case when there's a single transfer that is below the maxWeight
     @Test
-    void optimizationTest6() {
+    void optimizationTestSingleTransfer() {
 
         List<Transfer> transfers = List.of(new Transfer(5, 15));
         int maxWeight = 10;
@@ -97,7 +97,7 @@ class ServiceTest {
 
     // A case where the sum of all transfer weights is less than maxWeight
     @Test
-    void optimizationTest7() {
+    void optimizationTestLessThanMaxWeight() {
         List<Transfer> transfers = List.of(
                 new Transfer(5, 10),
                 new Transfer(10, 20),
@@ -114,7 +114,7 @@ class ServiceTest {
 
     //The sum of the weights is equal to maxWeight
     @Test
-    void optimizationTest8() {
+    void optimizationTestEqualToMaxWeight() {
         List<Transfer> transfers = List.of(
                 new Transfer(5, 10),
                 new Transfer(10, 20),
