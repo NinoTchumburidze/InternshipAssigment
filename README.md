@@ -28,19 +28,57 @@ java -jar target/assigment.jar
 
 ## Once the application is running, you can access the API by navigating to: http://localhost:8080
 
-## Example CURL Requests
+## Example CURL Requests and Responses(For Windows, cdm or Powershell)
+```nash
+1)input:
 
-1.valid input vol1
 curl.exe -X POST http://localhost:8080/processData -H "Content-Type: application/json" -d '{\"maxWeight\":15,\"availableTransfers\":[{\"weight\":5,\"cost\":10},{\"weight\":10,\"cost\":20},{\"weight\":3,\"cost\":5},{\"weight\":8,\"cost\":15}]}'
 
-2.valid input vol2
+output:
+
+{
+"selectedTransfers": [
+{"weight": 10, "cost": 20},{"weight": 5, "cost": 10}
+],
+"totalCost": 30,
+"totalWeight": 15
+}
+
+2)input
 curl.exe -X POST http://localhost:8080/processData -H "Content-Type: application/json" -d '{\"maxWeight\":20,\"availableTransfers\":[{\"weight\":10,\"cost\":30},{\"weight\":15,\"cost\":25},{\"weight\":5,\"cost\":15},{\"weight\":12,\"cost\":18}]}'
 
-3.valid input vol3
+output:
+{
+"selectedTransfers": [
+{"weight": 5, "cost": 15},{"weight": 10, "cost": 30}
+],
+"totalCost": 45,
+"totalWeight": 15
+}
+
+3)input:
 curl.exe -X POST http://localhost:8080/processData -H "Content-Type: application/json" -d '{\"maxWeight\":15,\"availableTransfers\":[{\"weight\":4,\"cost\":8},{\"weight\":6,\"cost\":12},{\"weight\":7,\"cost\":14},{\"weight\":5,\"cost\":10}]}'
 
-4.Exceeding Weight Limit
+output:
+{
+"selectedTransfers": [
+{"weight": 5, "cost": 10},{"weight": 6, "cost": 12},{"weight": 4, "cost": 8}
+],
+"totalCost": 30,
+"totalWeight": 15
+}
+
+4)input:
 curl.exe -X POST http://localhost:8080/processData -H "Content-Type: application/json" -d '{\"maxWeight\":15,\"availableTransfers\":[{\"weight\":20,\"cost\":10},{\"weight\":25,\"cost\":20},{\"weight\":18,\"cost\":5},{\"weight\":30,\"cost\":15}]}'
+
+output:
+{
+"selectedTransfers": [
+
+],
+"totalCost": 0,
+"totalWeight": 0
+}
 
 
 
